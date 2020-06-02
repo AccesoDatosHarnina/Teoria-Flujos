@@ -1,29 +1,23 @@
-package serializacion01;
+package binarios05Facade;
 
-import java.io.Serializable;
+public class Articulo {
 
-public class Cliente implements Serializable {
-	private static final long serialVersionUID =2L;
-	private int numero;
+	private int numeroID;
 	private String nombre;
-	private boolean preferente;
-	private float saldo;
-	public boolean vivo=true;
 
-	public Cliente(int numero, String nombre, boolean preferente, float saldo) {
+
+	public Articulo(int numeroID, String nombre) {
 		super();
-		this.numero = numero;
+		this.numeroID = numeroID;
 		this.nombre = nombre;
-		this.preferente = preferente;
-		this.saldo = saldo;
 	}
 
-	public int getNumero() {
-		return numero;
+	public int getNumeroID() {
+		return numeroID;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumeroID(int numeroID) {
+		this.numeroID = numeroID;
 	}
 
 	public String getNombre() {
@@ -32,22 +26,6 @@ public class Cliente implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public boolean isPreferente() {
-		return preferente;
-	}
-
-	public void setPreferente(boolean preferente) {
-		this.preferente = preferente;
-	}
-
-	public float getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(float saldo) {
-		this.saldo = saldo;
 	}
 
 	@Override
@@ -60,12 +38,12 @@ public class Cliente implements Serializable {
 		if (obj == null)
 			return false;
 		// 3º parte deben pertenece a la misma clase
-		if (!(obj instanceof Cliente))
+		if (!(obj instanceof Articulo))
 			return false;
 		// 4º parte establece tus condiciones para igualar aqui
-		Cliente instancia = (Cliente) obj;
+		Articulo instancia = (Articulo) obj;
 		// Si son mas, se ponen mas
-		return this.numero == instancia.numero && this.nombre.equals(instancia.nombre);
+		return this.numeroID == instancia.numeroID && this.nombre.equals(instancia.nombre);
 	}
 
 	/*
@@ -85,13 +63,6 @@ public class Cliente implements Serializable {
 		// los campos
 		// que tratamos podemos complicarlo un poco tanto como queramos dentro de las
 		// leyes
-		return hash * this.numero + this.nombre.hashCode();
-	}
-
-	//cambiar un metodo no parece importale a la serializacion
-	@Override
-	public String toString() {
-		// cambio despues de almacenar
-		return nombre+" "+numero;
+		return hash * this.numeroID + this.nombre.hashCode();
 	}
 }

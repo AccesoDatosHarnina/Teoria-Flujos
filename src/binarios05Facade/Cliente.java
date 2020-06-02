@@ -1,14 +1,12 @@
-package serializacion01;
+package binarios05Facade;
 
 import java.io.Serializable;
 
 public class Cliente implements Serializable {
-	private static final long serialVersionUID =2L;
 	private int numero;
 	private String nombre;
 	private boolean preferente;
 	private float saldo;
-	public boolean vivo=true;
 
 	public Cliente(int numero, String nombre, boolean preferente, float saldo) {
 		super();
@@ -86,12 +84,5 @@ public class Cliente implements Serializable {
 		// que tratamos podemos complicarlo un poco tanto como queramos dentro de las
 		// leyes
 		return hash * this.numero + this.nombre.hashCode();
-	}
-
-	//cambiar un metodo no parece importale a la serializacion
-	@Override
-	public String toString() {
-		// cambio despues de almacenar
-		return nombre+" "+numero;
 	}
 }
